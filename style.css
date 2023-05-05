@@ -1,0 +1,43 @@
+.conf_bs{
+    background-image:url('./img/hawaii.jpg');
+    background-position: center;
+    height: 46rem;
+    background-color: transparent;
+    position: relative;
+    
+}
+nav div img{
+    width: 20%;
+}
+
+.nav-link{
+    color:#ffff;
+    
+}
+.navbar{
+    background-color:gray !important;
+}
+
+    
+.navbar-brand{
+   color: #ffff;
+
+}
+
+.parrafo-inicio{
+    position: absolute;
+    color:#ffff;
+    margin-top: 26%;
+}
+.oradores-seccion img{
+    width: 100%;
+    margin-bottom: 2rem;
+}
+.formulario{
+    margin: 0 12rem ;
+}
+footer{
+    background-color: rgb(13, 65, 94);
+    display: flex;
+    align-items: center;
+}
