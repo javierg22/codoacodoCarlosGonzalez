@@ -1,8 +1,6 @@
 .conf_bs{
     background-image:url('./img/hawaii.jpg');
     background-position: center;
-    height: 46rem;
-    background-color: transparent;
     position: relative;
     
 }
@@ -25,7 +23,7 @@ nav div img{
 }
 
 .parrafo-inicio{
-    position: absolute;
+    position: relative;
     color:#ffff;
     margin-top: 26%;
 }
@@ -33,8 +31,12 @@ nav div img{
     width: 100%;
     margin-bottom: 2rem;
 }
+.donde{
+    max-width: 100%;
+}
 .formulario{
-    margin: 0 12rem ;
+    max-width: 60%;
+   
 }
 footer{
     background-color: rgb(13, 65, 94);
