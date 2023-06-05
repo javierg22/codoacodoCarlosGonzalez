@@ -1,3 +1,8 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
 .conf_bs{
     background-image:url('./img/hawaii.jpg');
     background-position: center;
@@ -34,6 +39,9 @@ nav div img{
 .donde{
     max-width: 100%;
 }
+.donde div img {
+    max-height: 100%;
+}
 .formulario{
     max-width: 60%;
    
@@ -42,4 +50,5 @@ footer{
     background-color: rgb(13, 65, 94);
     display: flex;
     align-items: center;
+    max-width: 100%;
 }
