@@ -1,17 +1,13 @@
-// const cards= document.getElementsByClassName('card-body')
-// const contairnerCards= document.querySelectorAll('.btn.card')
-// console.log(cards)
-// console.log(contairnerCards)
-//   VARIABLES
+
 const precioTicket= 200
 const categorias ={
     a:{percent:80, value:'0'},
     b:{percent:50, value:'1'},
     c:{percent:15, value:'2'}
 }
-const totaltext= 'Total a pagar: $'
+const totaltext= 'Total a pagar: $';
 
-let categoria = null
+let category = null
 let tickets= null
 let totalFinal = null
 
@@ -21,50 +17,58 @@ const form = document.forms.formulario
 const inputs= form.getElementsByTagName('input')
 const select= form.getElementsByTagName('select')
 
-const total= document.getElementById('total')
+const totalTag= document.getElementById('total')
 
 const resetBtn= document.getElementById('reset')
 const resumenBtn= document.getElementById('resumen')
 
-total.innerText= totaltext
+totalTag.innerText= totaltext
+ 
 
 const totalPrice =()=>{
+
+if(!tickets || !category)return;
     const totalValue= precioTicket * tickets
    
-    const descuento= (totalValue/100) * categorias[categoria].percent
+    const descuento= (totalValue/100) * categorias[category].percent
     totalFinal= totalValue - descuento
 
-total.innerText= totaltext + totalFinal
+    totalTag.innerText= totaltext + totalFinal
 }
+totalPrice()
 
 
 // EVENTOS
 
 const resetCategorias=() => {
-    totalFinal=null
-    selected=null
-   
+    totalFinal= null
+     selected = null  //selected
+     tickets= 0
     total.innerText= totaltext
     
 
 }
-const setCategory=(e) => {
-    const option= e.target.value
+
+
+const setCategory = (e) => {
+    const option = e.target.value
     if(option === 'none'){
         resetCategorias()
         return
     }
-    categoria = option
-    const index = categorias[categoria].value
-    selected= index
+    category = option
+    const index = categorias[category].value
+
+    selected=index
+  
     
     totalPrice()
     
 } 
 
 const setTickets=(e) => {
- const {value} =e.target
-if(value<0){
+ const { value } =e.target
+if(value<0 || isNaN(value)){
 e.target.value=0
 totalFinal= null
 return
@@ -88,13 +92,31 @@ const reset =(e) =>{
 
 }
 
-const submit=(e)=>{
+const submit=(e)=> {
     e.preventDefault()
 
+    const { nombre, apellido, email, tickets, category} = formulario
+    
+const verificate = { 
+    nombre: nombre.value !== '',
+    apellido:apellido.value !== '',
+    email: email.value.includes ('@'),
+    tickets: tickets.value >0 ,
+    category: category.value !== 'none'
+}
+
+const values = Object.values(verificate)
+console.log(values)
+
+const submitAccepted = values.every(value => value)
+ console.log(submitAccepted)
+ submitAccepted 
+ ?  location.href='./comprado.html'
+ : alert('Debes completar todos los Campos para poder comprar')
 
 }
 
-form.categoria.addEventListener('change',setCategory)
+form.category.addEventListener('change',setCategory)
 form.tickets.addEventListener('change', setTickets)
 form.tickets.addEventListener('keyup', setTickets)
 

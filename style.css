@@ -52,3 +52,13 @@ footer{
     align-items: center;
     max-width: 100%;
 }
+.confirmacion {
+    background-color: black;
+
+}
+.cartelConfirmacion{
+    font-size: 5rem;
+    color: aliceblue;
+    max-width: 100%;
+
+}
